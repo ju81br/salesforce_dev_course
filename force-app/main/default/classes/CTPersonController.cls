@@ -3,7 +3,7 @@ public with sharing class CTPersonController {
         Blob value = Blob.valueOf(mobileNo);
         Blob hash = Crypto.generateDigest('MD5', value);
 
-        // GET THE STRING VALUE OF HEASH BLOB
+        // GET THE STRING VALUE OF HASH BLOB
         return EncodingUtil.base64Encode(hash);
     }
     
