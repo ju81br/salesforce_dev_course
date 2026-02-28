@@ -5,6 +5,12 @@ public with sharing class CTPersonController {
 
         // GET THE STRING VALUE OF HASH BLOB
         return EncodingUtil.base64Encode(hash);
+            /* 
+            Debug
+            String mobileNo = '13997955239';
+            String uniqueToken = CTPersonController.getToken(mobileNo);
+            System.debug(uniqueToken);
+            */
     }
 
     public static List<Person__c> getRecentHealthChanges(){

@@ -6,7 +6,9 @@
   }, 
   
   
-   "salesforcedx-vscode-apex.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.29.7-hotspot"
+  "salesforcedx-vscode-apex.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.29.7-hotspot",
+  "xml.preferences.showSchemaDocumentationType": "none",
+  "salesforcedx-vscode-core.show-cli-success-msg": false
 
 
 }
