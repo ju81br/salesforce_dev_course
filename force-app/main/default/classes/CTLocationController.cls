@@ -1,11 +1,19 @@
 public with sharing class CTLocationController {
     
+    /**
+     * @description get recent status changes
+     * @return List<Locaiton__c>
+     */
     public static List<Location__c> getRentStatusChanges(){
         return [SELECT Id, Name, Pincode__c, Address__c, Red_Score__c, Status_Update_Date__c, Status__c
                   FROM Location__c
                  ORDER BY Status_Update_Date__c NULLS LAST LIMIT 100];
     }
 
+    /**
+     * @description search locations by name, pincode or address
+     * @return List<Location__c>
+     */
     public static List<Location__c> searchLocations(String searchTerm){
         searchTerm = searchTerm + '%'; 
         return [SELECT Id, Name, Pincode__c, Address__c, Red_Score__c, Status_Update_Date__c, Status__c
@@ -16,6 +24,10 @@ public with sharing class CTLocationController {
                  ORDER BY Status_Update_Date__c DESC NULLS LAST];
     }
 
+    /**
+     * @description get location by Id
+     * @return Location__c otherwise null
+     */
     public static Location__c getLocationById(String locationId){
         List<Location__c> locations = [SELECT Id, Name, Pincode__c, Address__c, Red_Score__c, Status_Update_Date__c, Status__c
                                          FROM Location__c

@@ -6,7 +6,7 @@
 public with sharing class CTLocationTracingController {
 
     /**
-     * Get last 30 days visitors
+     * @description Get last 30 days visitors
      * @param locationId
      * @return List<Location_Tracing__c>
      */
@@ -18,7 +18,7 @@ public with sharing class CTLocationTracingController {
     }
 
     /**
-     * Get all location ids for visitors
+     * @description Get all location ids for visitors
      * @param personIds
      * @return List<Location_Tracing__c>
      */
@@ -30,7 +30,7 @@ public with sharing class CTLocationTracingController {
     }
 
     /**
-     * Get all visitor ids for locations
+     * @description Get all visitor ids for locations
      * @param locationIds
      * @return List<Location_Tracing__c>
      */

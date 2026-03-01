@@ -1,4 +1,10 @@
 public with sharing class CTPersonController {
+
+    /**
+     * @description generate token using mobile
+     * @param mobileNo
+     * @return base64 encoded string
+     */
     public static String getToken(String mobileNo){
         Blob value = Blob.valueOf(mobileNo);
         Blob hash = Crypto.generateDigest('MD5', value);
@@ -13,10 +19,19 @@ public with sharing class CTPersonController {
             */
     }
 
+/**
+ * @description Get 100 contacts with recent health status change
+ * @return List<Person__c>
+ */ 
     public static List<Person__c> getRecentHealthChanges(){
         return [SELECT Id, Name, Health_Status__c, Mobile__c, Status_Update_Date__c, Token__c FROM Person__c ORDER BY Status_Update_Date__c DESC NULLS LAST LIMIT 100];
     }
 
+/**
+ * @description search people by name, mobile or token
+ * @param searchTerm
+ * @return List<Person__c>
+ */
     public static List<Person__c> searchPeople(String searchTerm){
         searchTerm = searchTerm + '%';
         return [SELECT Id, Name, Health_Status__c, Mobile__c, Status_Update_Date__c, Token__c
@@ -27,7 +42,11 @@ public with sharing class CTPersonController {
                     ORDER BY Status_Update_Date__c DESC NULLS LAST];
     }
 
-
+/**
+ * @description get person by Id
+ * @param personId
+ * @return Person__c
+ */
     public static Person__c getPersonById(String personId) {
       List<Person__c> people = [SELECT Id, Name, Health_Status__c, Mobile__c, Status_Update_Date__c, Token__c
                                   FROM Person__c
